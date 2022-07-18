@@ -23,7 +23,7 @@ fn main() {
     let output = chip.get_line(args.pin).unwrap();
     let output_handle = output.request(LineRequestFlags::OUTPUT, 0, "toggle").unwrap();
 
-    output_handle.set_value(1).unwrap();
-    thread::sleep(duration);
     output_handle.set_value(0).unwrap();
+    thread::sleep(duration);
+    output_handle.set_value(1).unwrap();
 }
